@@ -3,10 +3,13 @@ An deep autoencoder initialiezd with weights from pre-trained Restricted Boltzma
 
 This implementation provides support for CPU and GPU (CUDA). Simliar to the original paper, the RBM uses Contrastive Divergence learning for weight updates as described in [this paper](https://christian-igel.github.io/paper/TRBMAI.pdf) rather than pytorch's native optimizers.
 
-## Initializing a Deep Autoencoder with Pre-trained RBMs Can Give Better Results
+## Initializing a Deep Autoencoder (DAE) with Pre-trained RBMs Can Give Better Results
 The following images show the reconstructed MNIST images from a 784-1000-500-250-2 autoencoder based on different training strategies. You can see that the RBM pre-training strategy provides better results and a 20% lower loss. 
 
-<TODO: image here>
+| Original Image | DAE Naive Training | DAE Initialized with Pretrained RBMs |
+| :-----------: | :-----------: | :-----------: |
+| ![original image](/images/original_digits.png?raw=true) MSE loss: N/A | ![reconstructed image from naive training](/images/reconstructed_digits_naive_dae.png?raw=true) MSE loss: 0.06 | ![reconstructed image from pre-trained RBM training](/images/reconstructed_digits_dae.png?raw=true) MSE loss: 0.03 |
+
 
 This trend can also be seen when we plot the 2d representations learned by the autoencoders. We also provide a PCA decomposition for comparison.
 
