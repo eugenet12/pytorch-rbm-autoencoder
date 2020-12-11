@@ -31,7 +31,7 @@ def seed_everything(seed=42):
     torch.backends.cudnn.deterministic = True
 
 
-def display_output(v0, vk, dim1=28, dim2=28):
+def display_output(v0, vk, dim1=28, dim2=28, v0_fname=None, vk_fname=None):
     """Dsplaying the original and reconstructed images for comparison
 
     Parameters
@@ -44,16 +44,24 @@ def display_output(v0, vk, dim1=28, dim2=28):
         number of pixels on first dimension for plotting
     dim2: int
         number of pixels on second dimension for plotting
+    v0_fname: str
+        filename to save plot of original image in
+    vk_fname: str
+        filename to save plot of reconstructed image in
 
     """
     print("Original (top) and Reconstructed (bottom)")
     img = make_grid(v0.view(v0.shape[0], 1, dim1, dim2).data)
     npimg = np.transpose(img.detach().cpu().numpy(), (1, 2, 0))
     plt.imshow(npimg)
+    if v0_fname is not None:
+        plt.savefig(v0_fname)
     plt.show()
     img = make_grid(vk.view(vk.shape[0], 1, dim1, dim2).data)
     npimg = np.transpose(img.detach().cpu().numpy(), (1, 2, 0))
     plt.imshow(npimg)
+    if vk_fname is not None:
+        plt.savefig(vk_fname)    
     plt.show()
 
 

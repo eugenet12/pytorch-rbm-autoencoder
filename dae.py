@@ -169,7 +169,7 @@ class Naive_DAE(nn.Module):
             if i == len(self.encoders) - 1:
                 x = enc(x)
             else:
-                x = F.sigmoid(enc(x))
+                x = torch.sigmoid(enc(x))
         return x
     
     def decode(self, x):
@@ -187,5 +187,5 @@ class Naive_DAE(nn.Module):
 
         """
         for dec in self.decoders:
-            x = F.sigmoid(dec(x))
+            x = torch.sigmoid(dec(x))
         return x
