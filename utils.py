@@ -57,7 +57,7 @@ def display_output(v0, vk, dim1=28, dim2=28):
     plt.show()
 
 
-def display_2d_repr(data, labels):
+def display_2d_repr(data, labels, fname=None):
     """Display a 2d representation of the MNIST digits
 
     Parameters
@@ -66,6 +66,8 @@ def display_2d_repr(data, labels):
         2d representation of MNIST digits
     labels: list
         the label for each data point in data
+    fname: str
+        filename to save plot in
 
     """
 
@@ -81,4 +83,6 @@ def display_2d_repr(data, labels):
         ax.scatter(xs[ix], ys[ix], c=digit_to_color[digit],
                    label=digit, marker=".")
     ax.legend()
+    if fname is not None:
+        plt.savefig(fname)
     plt.show()

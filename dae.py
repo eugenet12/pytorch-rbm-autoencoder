@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from .utils import *
+from utils import *
 
 
 class DAE(nn.Module):

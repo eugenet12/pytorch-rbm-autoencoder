@@ -1,7 +1,7 @@
 """Implementation of a Restricted Boltzmann Machine"""
 import torch
 
-from .utils import *
+from utils import *
 
 
 class RBM():
