@@ -1,10 +1,10 @@
 # pytorch-rbm-autoencoder
-An deep autoencoder initialiezd with weights from pre-trained Restricted Boltzmann Machines (RBMs). This implementation is based on the greedy pre-training strategy described by Hinton and Salakhutdinov's paper "[Reducing the Dimensionality of Data with Neural Networks](http://www.cs.toronto.edu/~hinton/science.pdf)" (2006).
+A deep autoencoder initialized with weights from pre-trained Restricted Boltzmann Machines (RBMs). This implementation is based on the greedy pre-training strategy described by Hinton and Salakhutdinov's paper "[Reducing the Dimensionality of Data with Neural Networks](http://www.cs.toronto.edu/~hinton/science.pdf)" (2006).
 
 This implementation provides support for CPU and GPU (CUDA). Simliar to the original paper, the RBM uses Contrastive Divergence learning for weight updates as described in [this paper](https://christian-igel.github.io/paper/TRBMAI.pdf) rather than pytorch's native optimizers.
 
-## Initializing a Deep Autoencoder (DAE) with Pre-trained RBMs Can Give Better Results
-The following images show the reconstructed MNIST images from a 784-1000-500-250-2 autoencoder based on different training strategies. You can see that the RBM pre-training strategy provides better results and a 20% lower loss. 
+## Initializing a Deep Autoencoder with Pre-trained RBMs Can Give Better Results
+The following images show the reconstructed MNIST images from a 784-1000-500-250-2 deep autoencoder (DAE) based on different training strategies. You can see that the RBM pre-training strategy provides better results and a 20% lower loss. 
 
 | Original Image | DAE Naive Training | DAE Initialized with Pretrained RBMs |
 | :-----------: | :-----------: | :-----------: |
@@ -16,7 +16,6 @@ This trend can also be seen when we plot the 2d representations learned by the a
 | PCA | DAE Naive Training | DAE Initialized with Pretrained RBMs |
 | :-----------: | :-----------: | :-----------: |
 | ![2d representation from PCA](/images/pca_repr.png?raw=true) | ![2d representation from naive training](/images/naive_dae_repr.png?raw=true) | ![2d representation from pre-trained RBM training](/images/dae_repr.png?raw=true) |
-
 
 
 ## Why Pre-training Helps
