@@ -38,8 +38,8 @@ def train_rbm(train_dl, visible_dim, hidden_dim, k, num_epochs, lr, use_gaussian
 
     for epoch in range(num_epochs):
         train_loss = 0
-        for i, (features, labels) in enumerate(train_dl):
-            sample_data = features.to(DEVICE)
+        for i, data_list in enumerate(train_dl):
+            sample_data = data_list[0].to(DEVICE)
             v0, pvk = sample_data, sample_data
             
             # Gibbs sampling
@@ -55,7 +55,7 @@ def train_rbm(train_dl, visible_dim, hidden_dim, k, num_epochs, lr, use_gaussian
             rbm.update_weights(v0, pvk, ph0, phk, lr, 
                                momentum_coef=0.5 if epoch < 5 else 0.9, 
                                weight_decay=2e-4, 
-                               batch_size=features.shape[0])
+                               batch_size=sample_data.shape[0])
 
             # track loss
             train_loss += loss(v0, pvk)
