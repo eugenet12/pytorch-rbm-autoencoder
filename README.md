@@ -1,7 +1,7 @@
 # pytorch-rbm-autoencoder
-A deep autoencoder initialized with weights from pre-trained Restricted Boltzmann Machines (RBMs). This implementation is based on the greedy pre-training strategy described by Hinton and Salakhutdinov's paper "[Reducing the Dimensionality of Data with Neural Networks](http://www.cs.toronto.edu/~hinton/science.pdf)" (2006).
+A deep autoencoder initialized with weights from pre-trained Restricted Boltzmann Machines (RBMs). This implementation is based on the greedy pre-training strategy described by Hinton and Salakhutdinov's paper "[Reducing the Dimensionality of Data with Neural Networks](http://www.cs.toronto.edu/~hinton/science.pdf)" (2006). 
 
-This implementation provides support for CPU and GPU (CUDA). Simliar to the original paper, the RBM uses Contrastive Divergence learning for weight updates as described in [this paper](https://christian-igel.github.io/paper/TRBMAI.pdf) rather than pytorch's native optimizers.
+This implementation provides support for CPU and GPU (CUDA). Simliar to the original paper, the RBM uses Contrastive Divergence learning for weight updates as described in [this paper](https://christian-igel.github.io/paper/TRBMAI.pdf) rather than pytorch's native optimizers. Some of the code in `rbm.py` was inspired by [Gabriel Bianconi's RBM implementation](https://github.com/GabrielBianconi/pytorch-rbm).
 
 ## Initializing a Deep Autoencoder with Pre-trained RBMs Can Give Better Results
 The following images show the reconstructed MNIST images from a 784-1000-500-250-2 deep autoencoder (DAE) based on different training strategies. You can see that the RBM pre-training strategy provides better results and a 20% lower loss. 
